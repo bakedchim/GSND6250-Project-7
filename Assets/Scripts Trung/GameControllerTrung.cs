@@ -21,6 +21,7 @@ public class GameControllerTrung : MonoBehaviour
         Time.timeScale = 0;
         // Change cursor lock state
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         // Show the game win canvas
         gameWinCanvas.SetActive(true);
     }
@@ -31,6 +32,7 @@ public class GameControllerTrung : MonoBehaviour
         Time.timeScale = 0;
         // Change cursor lock state
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         // Show the game over canvas
         gameOverCanvas.SetActive(true);
     }

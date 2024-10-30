@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -45,6 +46,10 @@ public class PlayerController : MonoBehaviour
             return;
 
         if (interctableObjectTag != "" && inputManager.GetInteractInput()) {
+            if (interctableObjectTag == "Door") {
+                // Start the FinalInterior scene
+                SceneManager.LoadScene("FinalInterior");
+            }
             dialogController.StartInteraction(interctableObjectTag);
         }
 
