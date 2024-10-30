@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -19,6 +20,12 @@ public class PlayerController : MonoBehaviour
 
     private Transform cameraTransform;
 
+    bool canMove = true;
+    bool isInteractable = false;
+    
+    [SerializeField]
+    private TMP_Text interactText;
+
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
@@ -31,6 +38,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (!canMove)
+            return;
+
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
@@ -52,5 +62,27 @@ public class PlayerController : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        // Check the layer of the object that the player is colliding with
+        if (other.gameObject.layer == LayerMask.NameToLayer("Interactable")) {
+            isInteractable = true;
+            interactText.gameObject.SetActive(true);
+        }   
+    }
+
+    private void OnTriggerStay(Collider other) {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Interactable")) {
+            isInteractable = true;
+            interactText.gameObject.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other) {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Interactable")) {
+            isInteractable = false;
+            interactText.gameObject.SetActive(false);
+        }
     }
 }

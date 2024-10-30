@@ -30,6 +30,10 @@ public class CinemachinePOVExtension : CinemachineExtension
                 {
                     startingRotation = transform.localRotation.eulerAngles;
                 }
+                if (inputManager == null)
+                {
+                    inputManager = InputManager.Instance;
+                }
                 Vector2 deltaInput = inputManager.GetLookInput();
                 startingRotation.x += deltaInput.x * verticalSpeed * Time.deltaTime;
                 startingRotation.y += deltaInput.y * horizontalSpeed * Time.deltaTime;
