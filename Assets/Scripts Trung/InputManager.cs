@@ -57,4 +57,9 @@ public class InputManager : MonoBehaviour
     {
         return playerControls.Player.Jump.triggered;
     }
+
+    public bool GetInteractInput()
+    {
+        return playerControls.Player.Interact.triggered;
+    }
 }

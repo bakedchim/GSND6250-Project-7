@@ -21,10 +21,13 @@ public class PlayerController : MonoBehaviour
     private Transform cameraTransform;
 
     bool canMove = true;
-    bool isInteractable = false;
+    string interctableObjectTag = "";
     
     [SerializeField]
     private TMP_Text interactText;
+
+    [SerializeField]
+    private DialogController dialogController;
 
     private void Start()
     {
@@ -40,6 +43,10 @@ public class PlayerController : MonoBehaviour
     {
         if (!canMove)
             return;
+
+        if (interctableObjectTag != "" && inputManager.GetInteractInput()) {
+            dialogController.StartInteraction(interctableObjectTag);
+        }
 
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
@@ -67,21 +74,21 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         // Check the layer of the object that the player is colliding with
         if (other.gameObject.layer == LayerMask.NameToLayer("Interactable")) {
-            isInteractable = true;
+            interctableObjectTag = other.tag;
             interactText.gameObject.SetActive(true);
         }   
     }
 
     private void OnTriggerStay(Collider other) {
         if (other.gameObject.layer == LayerMask.NameToLayer("Interactable")) {
-            isInteractable = true;
+            interctableObjectTag = other.tag;
             interactText.gameObject.SetActive(true);
         }
     }
 
     private void OnTriggerExit(Collider other) {
         if (other.gameObject.layer == LayerMask.NameToLayer("Interactable")) {
-            isInteractable = false;
+            interctableObjectTag = "";
             interactText.gameObject.SetActive(false);
         }
     }
