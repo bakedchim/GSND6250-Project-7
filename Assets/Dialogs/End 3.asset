@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9688338da6bead4f9ec81dee06992a8, type: 3}
-  m_Name: Ponder
+  m_Name: End 3
   m_EditorClassIdentifier: 
-  isLeft: 0
-  text: I should look for more clues to answer this question
-  isSelfDialogue: 1
+  isLeft: 1
+  text: It's great to meet you again my brother. Let's go have some drinks!
+  isSelfDialogue: 0

@@ -13,6 +13,7 @@ public class DialogController : MonoBehaviour
     private Dialog[] question2;
     [SerializeField]
     private Dialog[] question3;
+    [SerializeField]
     private Dialog[] end;
 
     
@@ -34,8 +35,17 @@ public class DialogController : MonoBehaviour
     [SerializeField]
     private ObjectiveController objectiveController;
 
+    [SerializeField]
+    private GameControllerTrung gameController;
+
+    [SerializeField]
+    private PlayerController playerController;
+
     public void StartInteraction(string tag)
     {
+        playerController.canMove = false;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         if (tag == "NPC") {
             if (!objectiveController.hasGreeted) {
                 SetCurrentDialogs(greetingsAndQuestion1);
@@ -81,22 +91,28 @@ public class DialogController : MonoBehaviour
         if (currentDialogIndex == currentDialogs.Length - 1) {
             if (CompareDialogs(currentDialogs, greetingsAndQuestion1)) {
                 if (objectiveController.objective1Complete) {
-                    SetCurrentDialogs(objective1Completed);
+                    SetCurrentDialogs(question2);
+                    objectiveController.hasReturnObjective1 = true;
                 } else {
                     SetCurrentDialogs(ponder);
                 }
             } else if (CompareDialogs(currentDialogs, question2)) {
                 if (objectiveController.objective2Complete) {
-                    SetCurrentDialogs(objective2Completed);
+                    SetCurrentDialogs(question3);
+                    objectiveController.hasReturnObjective2 = true;
                 } else {
                     SetCurrentDialogs(ponder);
                 }
             } else if (CompareDialogs(currentDialogs, question3)) {
                 if (objectiveController.objective3Complete) {
-                    SetCurrentDialogs(objective3Completed);
+                    SetCurrentDialogs(end);
+                    objectiveController.hasReturnObjective3 = true;
                 } else {
                     SetCurrentDialogs(ponder);
                 }
+            } else if (CompareDialogs(currentDialogs, end)) {
+                EndDialog();
+                gameController.WinGame();
             } else {
                 EndDialog();
             }
@@ -131,7 +147,10 @@ public class DialogController : MonoBehaviour
 
     public void EndDialog()
     {
+        playerController.canMove = true;
         dialogPanel.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
     
 

@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
     private Transform cameraTransform;
 
-    bool canMove = true;
+    public bool canMove = true;
     string interctableObjectTag = "";
     
     [SerializeField]

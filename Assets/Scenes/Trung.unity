@@ -223,7 +223,7 @@ Transform:
   m_GameObject: {fileID: 94051243}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.37, y: 12.148313, z: 10.17}
+  m_LocalPosition: {x: 14.37, y: 1.55, z: 10.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 224390238}
   - component: {fileID: 224390240}
   - component: {fileID: 224390239}
+  - component: {fileID: 224390241}
   m_Layer: 5
   m_Name: DialogPanel
   m_TagString: Untagged
@@ -305,6 +306,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 224390237}
   m_CullTransparentMesh: 1
+--- !u!114 &224390241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224390237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 224390239}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1462569631}
+        m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
+        m_MethodName: AdvanceDialog
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,7 +450,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.524024, y: 12.646313, z: 5.4681554}
+  m_LocalPosition: {x: 11.524024, y: 4.7780004, z: 5.4681554}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1224,7 +1281,7 @@ Transform:
   m_GameObject: {fileID: 909447608}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.482129, y: 2.0953948, z: 1.2973393}
+  m_LocalPosition: {x: 2.482129, y: 0, z: 1.2973393}
   m_LocalScale: {x: 100, y: 1, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1452,7 +1509,7 @@ Transform:
   m_GameObject: {fileID: 1100252486}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.524024, y: 12.148313, z: 10.17}
+  m_LocalPosition: {x: 11.524024, y: 1.84, z: 10.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1689,7 +1746,7 @@ Transform:
   m_GameObject: {fileID: 1461536743}
   serializedVersion: 2
   m_LocalRotation: {x: -0.11925223, y: 0.87891096, z: -0.3554482, w: -0.2948746}
-  m_LocalPosition: {x: 11.524024, y: 12.646313, z: 5.4681554}
+  m_LocalPosition: {x: 11.524024, y: 4.7780004, z: 5.4681554}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1790,16 +1847,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5791e904cb79aa409878d667b698c97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ponder: []
-  greetingsAndQuestion1: []
-  question2: []
-  question3: []
-  objective1Completed: []
-  objective2Completed: []
-  objective3Completed: []
+  ponder:
+  - {fileID: 11400000, guid: 2e7a9ae4318493545bba6daa22c80f8b, type: 2}
+  greetingsAndQuestion1:
+  - {fileID: 11400000, guid: 79e3e7c6a66cbed47bc6e00b197a059e, type: 2}
+  - {fileID: 11400000, guid: 8f64e8f681a373c438861f577eb5d55a, type: 2}
+  - {fileID: 11400000, guid: 25c30293aba7d7a4aba7bde54ab8ce59, type: 2}
+  question2:
+  - {fileID: 11400000, guid: 450161c0d90129049b765bdd7274bedd, type: 2}
+  - {fileID: 11400000, guid: 1b0686ca9375325449e5096069118504, type: 2}
+  - {fileID: 11400000, guid: 407527db0f501d94d8c5af1521dcae9d, type: 2}
+  question3:
+  - {fileID: 11400000, guid: e10ef20f77fb59f4c9fe5a99bde5141b, type: 2}
+  - {fileID: 11400000, guid: 4d1889fce2d2111428ac74776019843c, type: 2}
+  - {fileID: 11400000, guid: 3bb8ec6fe2d3c1443a34c01cfe15a5e8, type: 2}
+  end:
+  - {fileID: 11400000, guid: 363ca644d873dff4d82e7343cdc0f140, type: 2}
+  - {fileID: 11400000, guid: b53e3ab50737229499a382a0e978ae11, type: 2}
+  - {fileID: 11400000, guid: c602dc8a97332654a83444172bc61af1, type: 2}
+  objective1Completed:
+  - {fileID: 11400000, guid: c77ac8d399418e04c9e65b97c347c2cd, type: 2}
+  objective2Completed:
+  - {fileID: 11400000, guid: 6c4975c522317994f878d0eb3e9b1093, type: 2}
+  objective3Completed:
+  - {fileID: 11400000, guid: 0e84d664c4d3d864fad856a6aead3e41, type: 2}
   dialogPanel: {fileID: 224390237}
   dialogText: {fileID: 1399512755}
   objectiveController: {fileID: 1462569630}
+  gameController: {fileID: 1462569628}
+  playerController: {fileID: 2123484952}
 --- !u!1 &1575526763
 GameObject:
   m_ObjectHideFlags: 0
@@ -1899,7 +1975,7 @@ Transform:
   m_GameObject: {fileID: 1575526763}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.89, y: 12.148313, z: 5.4681554}
+  m_LocalPosition: {x: 16.89, y: 1.6, z: 5.4681554}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2006,7 +2082,7 @@ Transform:
   m_GameObject: {fileID: 1827113956}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.27, y: 12.148313, z: 10.17}
+  m_LocalPosition: {x: 8.27, y: 2.05, z: 10.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2039,7 +2115,7 @@ Transform:
   m_GameObject: {fileID: 2123484950}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.524024, y: 12.148313, z: 5.4681554}
+  m_LocalPosition: {x: 11.524024, y: 4.28, z: 5.4681554}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2062,8 +2138,9 @@ MonoBehaviour:
   playerSpeed: 2
   jumpHeight: 1
   gravityValue: -9.81
+  canMove: 1
   interactText: {fileID: 389411999}
-  dialogController: {fileID: 0}
+  dialogController: {fileID: 1462569631}
 --- !u!143 &2123484953
 CharacterController:
   m_ObjectHideFlags: 0
